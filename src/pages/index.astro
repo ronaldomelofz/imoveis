@@ -6,10 +6,7 @@ import PropertyCard from "../components/PropertyCard.astro";
 const imoveis = (await getCollection("imoveis")).sort(
   (a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime(),
 );
-const destaques = imoveis.filter((item) => item.data.featured).slice(0, 3);
-const artigos = (await getCollection("blog"))
-  .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime())
-  .slice(0, 3);
+const destaques = imoveis.filter((item) => item.data.featured).slice(0, 2);
 
 const homeSchema = [
   {
@@ -101,31 +98,37 @@ const homeSchema = [
     </div>
   </section>
 
-  <section class="section">
+  <section class="section-sm home-showcase">
     <div class="container">
-      <span class="eyebrow">Destaques</span>
-      <h2 class="section-title">Imoveis e terrenos publicados</h2>
-      <p class="section-copy">
-        Encontre oportunidades com descricao clara, imagens e acesso rapido ao
-        meu contato pelo telefone ou WhatsApp.
-      </p>
+      <div class="showcase-head">
+        <div>
+          <span class="eyebrow">Anuncios</span>
+          <h2 class="showcase-title">Imoveis em destaque</h2>
+        </div>
+        <a class="button button-ghost" href="/imoveis/">
+          Ver catalogo completo
+        </a>
+      </div>
 
-      <div class="property-grid" style="margin-top: 2rem;">
+      <div class="property-grid property-grid-compact" style="margin-top: 1.5rem;">
         {destaques.map((item) => <PropertyCard item={item} />)}
       </div>
     </div>
   </section>
 
-  <section class="section">
-    <div class="container split-banner">
-      <div>
-        <span class="eyebrow">Contato direto</span>
-        <h2 class="section-title">Fale comigo sobre qualquer anuncio.</h2>
-        <p>
-          Se voce quiser saber mais detalhes sobre um terreno ou outro imovel
-          anunciado aqui, entre em contato diretamente pelo WhatsApp.
-        </p>
-        <div class="hero-actions">
+  <section class="section-sm">
+    <div class="container">
+      <div class="cta-band home-cta-band">
+        <div>
+          <span class="eyebrow">Contato direto</span>
+          <h2>Quer saber mais sobre um imovel?</h2>
+          <p>
+            Fale comigo para confirmar disponibilidade, valores e agendar uma
+            visita.
+          </p>
+        </div>
+
+        <div class="hero-actions home-cta-actions">
           <a
             class="button button-primary"
             href="https://wa.me/5586999254624?text=Ola%2C%20quero%20mais%20informacoes%20sobre%20os%20imoveis."
@@ -134,123 +137,10 @@ const homeSchema = [
           >
             Chamar no WhatsApp
           </a>
-          <a class="button button-ghost" href="/contato/">
-            Enviar mensagem
+          <a class="button button-ghost" href="tel:+5586999254624">
+            Ligar agora
           </a>
         </div>
-      </div>
-
-      <img
-        src="/uploads/imoveis/memorare/1.jpg"
-        alt="Mapa com terreno anunciado proximo ao Memorare em Teresina"
-        width="768"
-        height="520"
-      />
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <span class="eyebrow">Vantagens</span>
-      <h2 class="section-title">Tudo para facilitar a negociacao</h2>
-      <div class="grid-3">
-        <article class="card">
-          <h3>Informacoes objetivas</h3>
-          <p>
-            Cada anuncio destaca localizacao de referencia, descricao direta e
-            detalhes essenciais para uma analise inicial.
-          </p>
-        </article>
-        <article class="card">
-          <h3>Contato imediato</h3>
-          <p>
-            O interessado pode falar comigo sem burocracia usando WhatsApp ou
-            telefone.
-          </p>
-        </article>
-        <article class="card">
-          <h3>Visualizacao rapida</h3>
-          <p>
-            As fotos e as referencias de mapa ajudam a entender melhor cada
-            oportunidade antes da visita.
-          </p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <span class="eyebrow">Teresina-PI</span>
-      <h2 class="section-title">
-        Oportunidades anunciadas com foco em atendimento rapido.
-      </h2>
-      <div class="grid-2">
-        <article class="detail-card">
-          <h3>Mais praticidade para comprar</h3>
-          <p>
-            Quem procura imovel encontra anuncios com telefone visivel,
-            WhatsApp sempre acessivel e informacoes organizadas por pagina.
-          </p>
-        </article>
-        <article class="detail-card">
-          <h3>Informacoes para decidir melhor</h3>
-          <p>
-            Cada pagina mostra fotos, descricao, endereco de referencia e meus
-            canais de contato para facilitar a negociacao.
-          </p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <span class="eyebrow">Conteudo</span>
-      <h2 class="section-title">Dicas e informacoes sobre imoveis</h2>
-      <div class="grid-3">
-        {artigos.map((post) => (
-          <article class="content-card">
-            <span class="pill pill-muted">{post.data.category}</span>
-            <h3>
-              <a href={`/blog/${post.data.slug}/`}>{post.data.title}</a>
-            </h3>
-            <p>{post.data.description}</p>
-            <a href={`/blog/${post.data.slug}/`} class="button button-ghost">
-              Ler artigo
-            </a>
-          </article>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <span class="eyebrow">FAQ</span>
-      <h2 class="section-title">Perguntas frequentes</h2>
-      <div class="faq-grid">
-        <article class="faq-card">
-          <strong>Como o comprador entra em contato?</strong>
-          <p>
-            Pelo telefone visivel em cada pagina e pelo botao de WhatsApp com
-            mensagem pre-preenchida.
-          </p>
-        </article>
-        <article class="faq-card">
-          <strong>Os anuncios mostram localizacao?</strong>
-          <p>
-            Sim. Cada pagina apresenta endereco de referencia e atalho para
-            abrir a regiao no Google Maps.
-          </p>
-        </article>
-        <article class="faq-card">
-          <strong>Como agendar uma visita?</strong>
-          <p>
-            Basta falar comigo pelo telefone ou WhatsApp e combinar o melhor
-            horario para atendimento.
-          </p>
-        </article>
       </div>
     </div>
   </section>

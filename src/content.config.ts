@@ -47,19 +47,4 @@ const imoveis = defineCollection({
   }),
 });
 
-const blog = defineCollection({
-  loader: glob({ base: "./src/content/blog", pattern: "**/*.md" }),
-  schema: z.object({
-    title: z.string(),
-    slug: z.string(),
-    description: z.string(),
-    seoTitle: z.string(),
-    seoDescription: z.string(),
-    publishedAt: z.coerce.date(),
-    updatedAt: z.coerce.date(),
-    category: z.string(),
-    readingTime: z.string(),
-  }),
-});
-
-export const collections = { imoveis, blog };
+export const collections = { imoveis };
