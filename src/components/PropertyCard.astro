@@ -1,0 +1,66 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  item: CollectionEntry<"imoveis">;
+}
+
+const { item } = Astro.props;
+const firstImage = item.data.gallery[0];
+---
+
+<article class="property-card">
+  <a class="property-card-image" href={`/imoveis/${item.data.slug}/`}>
+    <img
+      src={firstImage.src}
+      alt={firstImage.alt}
+      loading="lazy"
+      width="640"
+      height="420"
+    />
+  </a>
+
+  <div class="property-card-body">
+    <div class="property-meta-row">
+      <span class="pill">{item.data.propertyType}</span>
+      <span class="pill pill-muted">
+        {item.data.transactionType === "venda" ? "Venda" : "Aluguel"}
+      </span>
+      {item.data.featured && <span class="pill pill-highlight">Destaque</span>}
+    </div>
+
+    <h3>
+      <a href={`/imoveis/${item.data.slug}/`}>{item.data.title}</a>
+    </h3>
+    <p>{item.data.summary}</p>
+
+    <dl class="property-details">
+      <div>
+        <dt>Regiao</dt>
+        <dd>{item.data.region}</dd>
+      </div>
+      <div>
+        <dt>Endereco</dt>
+        <dd>{item.data.address}</dd>
+      </div>
+      <div>
+        <dt>Valor</dt>
+        <dd>{item.data.priceLabel}</dd>
+      </div>
+    </dl>
+
+    <div class="property-actions">
+      <a class="button button-primary" href={`/imoveis/${item.data.slug}/`}>
+        Ver anuncio
+      </a>
+      <a
+        class="button button-ghost"
+        href={`https://wa.me/${item.data.whatsappNumber}?text=${encodeURIComponent(`Ola, quero mais informacoes sobre ${item.data.title}.`)}`}
+        target="_blank"
+        rel="noreferrer"
+      >
+        WhatsApp
+      </a>
+    </div>
+  </div>
+</article>

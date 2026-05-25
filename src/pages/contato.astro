@@ -1,0 +1,101 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  name: "Contato | Imoveis Teresina",
+  url: "https://imoveisteresina.netlify.app/contato/",
+};
+---
+
+<BaseLayout
+  title="Contato | Imoveis Teresina"
+  description="Entre em contato para anunciar ou pedir mais informacoes sobre imoveis em Teresina-PI."
+  pathname="/contato/"
+  schema={schema}
+>
+  <div class="container breadcrumb">
+    <a href="/">Inicio</a>
+    <span>/</span>
+    <span>Contato</span>
+  </div>
+
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow">Atendimento rapido</span>
+      <h1>Contato para compradores e vendedores</h1>
+      <p>
+        Use o WhatsApp para resposta imediata ou envie uma mensagem pelo
+        formulario preparado para a Netlify.
+      </p>
+    </div>
+  </section>
+
+  <section class="section-sm">
+    <div class="container content-grid">
+      <article class="detail-card">
+        <h2>Enviar mensagem</h2>
+        <form
+          class="contact-form"
+          name="contato"
+          method="POST"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
+        >
+          <input type="hidden" name="form-name" value="contato" />
+          <p hidden>
+            <label>
+              Nao preencha este campo
+              <input name="bot-field" />
+            </label>
+          </p>
+
+          <div class="field">
+            <input type="text" name="nome" placeholder="Seu nome" required />
+          </div>
+          <div class="field">
+            <input type="tel" name="telefone" placeholder="Seu telefone" required />
+          </div>
+          <div class="field">
+            <input type="text" name="assunto" placeholder="Assunto" required />
+          </div>
+          <div class="field">
+            <textarea
+              name="mensagem"
+              rows="6"
+              placeholder="Descreva o imovel ou a sua necessidade"
+              required
+            ></textarea>
+          </div>
+          <button class="button button-primary" type="submit">
+            Enviar pela Netlify
+          </button>
+        </form>
+      </article>
+
+      <aside class="sidebar-card">
+        <h2>Atalhos de contato</h2>
+        <div class="contact-box">
+          <p><strong>WhatsApp:</strong> (86) 99925-4624</p>
+          <p><strong>Cidade foco:</strong> Teresina - PI</p>
+          <p><strong>Atendimento:</strong> anuncios, negociacao e novas publicacoes</p>
+        </div>
+
+        <div class="hero-actions" style="margin-top: 1rem;">
+          <a
+            class="button button-primary"
+            href="https://wa.me/5586999254624?text=Ola%2C%20quero%20falar%20sobre%20um%20imovel%20em%20Teresina."
+            target="_blank"
+            rel="noreferrer"
+          >
+            Chamar no WhatsApp
+          </a>
+          <a class="button button-ghost" href="tel:+5586999254624">
+            Ligar
+          </a>
+        </div>
+      </aside>
+    </div>
+  </section>
+</BaseLayout>

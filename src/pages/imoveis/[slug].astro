@@ -1,0 +1,257 @@
+---
+import { getCollection, render } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+export async function getStaticPaths() {
+  const imoveis = await getCollection("imoveis");
+  return imoveis.map((item) => ({
+    params: { slug: item.data.slug },
+    props: { item },
+  }));
+}
+
+const { item } = Astro.props;
+const { Content } = await render(item);
+const firstImage = item.data.gallery[0];
+
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "RealEstateListing",
+    name: item.data.title,
+    description: item.data.seoDescription,
+    url: `https://imoveisteresina.netlify.app/imoveis/${item.data.slug}/`,
+    datePosted: item.data.publishedAt.toISOString(),
+    breadcrumb: {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Inicio",
+          item: "https://imoveisteresina.netlify.app/",
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Imoveis",
+          item: "https://imoveisteresina.netlify.app/imoveis/",
+        },
+        {
+          "@type": "ListItem",
+          position: 3,
+          name: item.data.title,
+          item: `https://imoveisteresina.netlify.app/imoveis/${item.data.slug}/`,
+        },
+      ],
+    },
+    offers: {
+      "@type": "Offer",
+      availability:
+        item.data.status === "disponivel"
+          ? "https://schema.org/InStock"
+          : "https://schema.org/SoldOut",
+      category: item.data.transactionType,
+      priceCurrency: "BRL",
+      priceSpecification: {
+        "@type": "PriceSpecification",
+        priceCurrency: "BRL",
+        valueAddedTaxIncluded: false,
+      },
+    },
+    about: {
+      "@type": "Place",
+      name: item.data.address,
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: item.data.city,
+        addressRegion: "PI",
+        streetAddress: item.data.address,
+      },
+    },
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: item.data.faq.map((entry) => ({
+      "@type": "Question",
+      name: entry.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: entry.answer,
+      },
+    })),
+  },
+];
+---
+
+<BaseLayout
+  title={item.data.seoTitle}
+  description={item.data.seoDescription}
+  pathname={`/imoveis/${item.data.slug}/`}
+  image={firstImage.src}
+  schema={schema}
+>
+  <div class="container breadcrumb">
+    <a href="/">Inicio</a>
+    <span>/</span>
+    <a href="/imoveis/">Imoveis</a>
+    <span>/</span>
+    <span>{item.data.title}</span>
+  </div>
+
+  <section class="section-sm">
+    <div class="container property-hero">
+      <div class="gallery-grid">
+        <div class="gallery-grid-main">
+          <img
+            src={firstImage.src}
+            alt={firstImage.alt}
+            width="1200"
+            height="720"
+          />
+        </div>
+
+        {item.data.gallery.length > 1 && (
+          <div class="gallery-grid-list">
+            {item.data.gallery.slice(1).map((image) => (
+              <img
+                src={image.src}
+                alt={image.alt}
+                loading="lazy"
+                width="420"
+                height="260"
+              />
+            ))}
+          </div>
+        )}
+      </div>
+
+      <aside class="sidebar-card sticky">
+        <div class="property-meta-row">
+          <span class="pill">{item.data.propertyType}</span>
+          <span class="pill pill-muted">
+            {item.data.transactionType === "venda" ? "Venda" : "Aluguel"}
+          </span>
+          <span class="pill pill-highlight">
+            {item.data.status === "disponivel" ? "Disponivel" : item.data.status}
+          </span>
+        </div>
+
+        <h1>{item.data.title}</h1>
+        <p class="price-label">{item.data.priceLabel}</p>
+        <p>{item.data.summary}</p>
+
+        <dl class="meta-list">
+          <div>
+            <dt>Cidade</dt>
+            <dd>{item.data.city} - PI</dd>
+          </div>
+          <div>
+            <dt>Regiao</dt>
+            <dd>{item.data.region}</dd>
+          </div>
+          <div>
+            <dt>Bairro ou referencia</dt>
+            <dd>{item.data.neighborhood}</dd>
+          </div>
+          <div>
+            <dt>Endereco</dt>
+            <dd>{item.data.address}</dd>
+          </div>
+          <div>
+            <dt>Contato</dt>
+            <dd>{item.data.contactPhone}</dd>
+          </div>
+        </dl>
+
+        <div class="property-actions" style="margin-top: 1.25rem;">
+          <a
+            class="button button-primary"
+            href={`https://wa.me/${item.data.whatsappNumber}?text=${encodeURIComponent(`Ola, quero mais informacoes sobre ${item.data.title}.`)}`}
+            target="_blank"
+            rel="noreferrer"
+          >
+            Enviar WhatsApp
+          </a>
+          <a class="button button-ghost" href={`tel:${item.data.contactPhone}`}>
+            Ligar agora
+          </a>
+        </div>
+
+        <p style="margin-top: 1rem; color: var(--muted);">
+          Referencia de mapa e dados iniciais podem ser ajustados no painel
+          administrativo sempre que houver novas informacoes.
+        </p>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section-sm">
+    <div class="container content-grid">
+      <article class="detail-card prose">
+        <h2>Descricao do imovel</h2>
+        <Content />
+      </article>
+
+      <aside class="sidebar-card">
+        <h2>Destaques</h2>
+        <ul>
+          {item.data.highlights.map((highlight) => <li>{highlight}</li>)}
+        </ul>
+
+        <h3>Localizacao de referencia</h3>
+        <p>{item.data.address}</p>
+        <a
+          class="button button-ghost"
+          href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(item.data.mapQuery)}`}
+          target="_blank"
+          rel="noreferrer"
+        >
+          Abrir no Google Maps
+        </a>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section-sm">
+    <div class="container">
+      <div class="cta-band">
+        <h2>Quer negociar este imovel?</h2>
+        <p>
+          Fale direto com o vendedor para confirmar disponibilidade, preco,
+          documentacao e agendar visita.
+        </p>
+        <div class="hero-actions">
+          <a
+            class="button button-primary"
+            href={`https://wa.me/${item.data.whatsappNumber}?text=${encodeURIComponent(`Ola, tenho interesse no anuncio ${item.data.title}.`)}`}
+            target="_blank"
+            rel="noreferrer"
+          >
+            Chamar no WhatsApp
+          </a>
+          <a class="button button-ghost" href={`tel:${item.data.contactPhone}`}>
+            {item.data.contactPhone}
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {item.data.faq.length > 0 && (
+    <section class="section-sm">
+      <div class="container">
+        <h2>Perguntas frequentes</h2>
+        <div class="faq-grid">
+          {item.data.faq.map((entry) => (
+            <article class="faq-card">
+              <strong>{entry.question}</strong>
+              <p>{entry.answer}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+</BaseLayout>

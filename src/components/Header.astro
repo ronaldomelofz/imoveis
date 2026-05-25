@@ -1,0 +1,40 @@
+---
+const currentPath = Astro.url.pathname;
+
+const navItems = [
+  { href: "/", label: "Inicio" },
+  { href: "/imoveis/", label: "Imoveis" },
+  { href: "/imoveis-em-teresina-pi/", label: "SEO Local" },
+  { href: "/blog/", label: "Blog" },
+  { href: "/contato/", label: "Contato" },
+];
+---
+
+<header class="site-header">
+  <div class="container topbar">
+    <a class="brand" href="/">
+      <span class="brand-mark">IT</span>
+      <span>
+        <strong>Imoveis Teresina</strong>
+        <small>Anuncie e encontre oportunidades</small>
+      </span>
+    </a>
+
+    <nav aria-label="Principal" class="main-nav">
+      {navItems.map((item) => (
+        <a class={currentPath === item.href ? "active" : ""} href={item.href}>
+          {item.label}
+        </a>
+      ))}
+    </nav>
+
+    <a
+      class="button button-primary header-cta"
+      href="https://wa.me/5586999254624?text=Ola%2C%20quero%20anunciar%20um%20imovel%20em%20Teresina."
+      target="_blank"
+      rel="noreferrer"
+    >
+      Anunciar no WhatsApp
+    </a>
+  </div>
+</header>

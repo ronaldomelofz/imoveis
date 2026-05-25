@@ -1,0 +1,26 @@
+{
+  "name": "imoveis-teresina",
+  "version": "1.0.0",
+  "description": "Portal de anuncios de imoveis em Teresina-PI com painel administrativo e foco em SEO local.",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "keywords": [
+    "imoveis",
+    "teresina",
+    "netlify",
+    "astro",
+    "seo-local"
+  ],
+  "author": "Cursor",
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "@astrojs/sitemap": "^3.7.2",
+    "astro": "^6.3.7"
+  }
+}

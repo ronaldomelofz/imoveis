@@ -1,0 +1,104 @@
+locale: "pt"
+backend:
+  name: git-gateway
+  branch: main
+
+site_url: https://imoveisteresina.netlify.app
+display_url: https://imoveisteresina.netlify.app
+logo_url: /favicon.svg
+media_folder: public/uploads
+public_folder: /uploads
+publish_mode: simple
+
+collections:
+  - name: imoveis
+    label: Imoveis
+    label_singular: Imovel
+    folder: src/content/imoveis
+    create: true
+    slug: "{{slug}}"
+    summary: "{{title}}"
+    extension: md
+    format: frontmatter
+    editor:
+      preview: false
+    fields:
+      - { label: Titulo, name: title, widget: string }
+      - { label: Slug, name: slug, widget: string, hint: "Ex.: terreno-zona-leste-teresina" }
+      - { label: Resumo, name: summary, widget: text }
+      - { label: SEO Title, name: seoTitle, widget: string }
+      - { label: SEO Description, name: seoDescription, widget: text }
+      - { label: Preco exibido, name: priceLabel, widget: string, default: "Valor sob consulta" }
+      - label: Tipo de transacao
+        name: transactionType
+        widget: select
+        options:
+          - { label: Venda, value: venda }
+          - { label: Aluguel, value: aluguel }
+      - { label: Tipo do imovel, name: propertyType, widget: string, default: "Terreno" }
+      - label: Status
+        name: status
+        widget: select
+        options:
+          - { label: Disponivel, value: disponivel }
+          - { label: Reservado, value: reservado }
+          - { label: Vendido, value: vendido }
+          - { label: Alugado, value: alugado }
+      - { label: Cidade, name: city, widget: string, default: "Teresina" }
+      - { label: Bairro ou referencia, name: neighborhood, widget: string }
+      - { label: Regiao, name: region, widget: string }
+      - { label: Endereco exibido, name: address, widget: string }
+      - { label: Consulta do mapa, name: mapQuery, widget: string, hint: "Texto para abrir no Google Maps" }
+      - { label: Nome do contato, name: contactName, widget: string, default: "Ronaldo Melo" }
+      - { label: Telefone do contato, name: contactPhone, widget: string, default: "(86) 99925-4624" }
+      - { label: Numero WhatsApp, name: whatsappNumber, widget: string, default: "5586999254624" }
+      - { label: Area exibida, name: areaLabel, widget: string, required: false }
+      - { label: Area do terreno, name: lotAreaLabel, widget: string, required: false }
+      - { label: Quartos, name: bedrooms, widget: number, value_type: int, default: 0 }
+      - { label: Banheiros, name: bathrooms, widget: number, value_type: int, default: 0 }
+      - { label: Vagas, name: parkingSpots, widget: number, value_type: int, default: 0 }
+      - { label: Destaque, name: featured, widget: boolean, default: false }
+      - label: Destaques
+        name: highlights
+        widget: list
+        field: { label: Item, name: item, widget: string }
+      - label: Galeria
+        name: gallery
+        widget: list
+        summary: "{{fields.alt}}"
+        fields:
+          - { label: Imagem, name: src, widget: image }
+          - { label: Alt da imagem, name: alt, widget: string }
+      - { label: Data de publicacao, name: publishedAt, widget: datetime, format: "YYYY-MM-DD" }
+      - { label: Data de atualizacao, name: updatedAt, widget: datetime, format: "YYYY-MM-DD" }
+      - label: FAQ
+        name: faq
+        widget: list
+        required: false
+        fields:
+          - { label: Pergunta, name: question, widget: string }
+          - { label: Resposta, name: answer, widget: text }
+      - { label: Descricao longa, name: body, widget: markdown }
+
+  - name: blog
+    label: Blog
+    label_singular: Artigo
+    folder: src/content/blog
+    create: true
+    slug: "{{slug}}"
+    summary: "{{title}}"
+    extension: md
+    format: frontmatter
+    editor:
+      preview: false
+    fields:
+      - { label: Titulo, name: title, widget: string }
+      - { label: Slug, name: slug, widget: string }
+      - { label: Descricao, name: description, widget: text }
+      - { label: SEO Title, name: seoTitle, widget: string }
+      - { label: SEO Description, name: seoDescription, widget: text }
+      - { label: Categoria, name: category, widget: string }
+      - { label: Tempo de leitura, name: readingTime, widget: string, default: "4 min de leitura" }
+      - { label: Data de publicacao, name: publishedAt, widget: datetime, format: "YYYY-MM-DD" }
+      - { label: Data de atualizacao, name: updatedAt, widget: datetime, format: "YYYY-MM-DD" }
+      - { label: Conteudo, name: body, widget: markdown }

@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" x2="100%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#08111f" />
+      <stop offset="100%" stop-color="#0ea5e9" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <circle cx="1020" cy="120" r="120" fill="#22c55e" opacity=".15" />
+  <circle cx="950" cy="520" r="180" fill="#ffffff" opacity=".08" />
+  <text x="90" y="240" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="72" font-weight="700">
+    Imoveis Teresina
+  </text>
+  <text x="90" y="320" fill="#dbeafe" font-family="Arial, Helvetica, sans-serif" font-size="34">
+    Anuncios de imoveis em Teresina-PI com WhatsApp, SEO local e publicacao rapida
+  </text>
+  <rect x="90" y="390" width="270" height="76" rx="38" fill="#22c55e" />
+  <text x="150" y="440" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="32" font-weight="700">
+    imoveisteresina
+  </text>
+</svg>

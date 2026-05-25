@@ -1,0 +1,258 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PropertyCard from "../components/PropertyCard.astro";
+
+const imoveis = (await getCollection("imoveis")).sort(
+  (a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime(),
+);
+const destaques = imoveis.filter((item) => item.data.featured).slice(0, 3);
+const artigos = (await getCollection("blog"))
+  .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime())
+  .slice(0, 3);
+
+const homeSchema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "Imoveis Teresina",
+    url: "https://imoveisteresina.netlify.app",
+    potentialAction: {
+      "@type": "SearchAction",
+      target: "https://imoveisteresina.netlify.app/imoveis/?busca={search_term_string}",
+      "query-input": "required name=search_term_string",
+    },
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "RealEstateAgent",
+    name: "Imoveis Teresina",
+    areaServed: "Teresina, PI",
+    telephone: "+55 86 99925-4624",
+    url: "https://imoveisteresina.netlify.app",
+  },
+];
+---
+
+<BaseLayout
+  title="Imoveis em Teresina-PI | Imoveis Teresina"
+  description="Portal moderno para anuncios de imoveis em Teresina-PI com fotos, descricao, telefone do vendedor e botao de WhatsApp."
+  pathname="/"
+  image="/uploads/imoveis/petronio-portela/1.jpg"
+  schema={homeSchema}
+>
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <span class="eyebrow">SEO local + anuncio rapido</span>
+        <h1 class="section-title">
+          Site moderno para anunciar imoveis em Teresina-PI e gerar contato
+          rapido pelo WhatsApp.
+        </h1>
+        <p>
+          O portal foi pensado para destacar fotos, localizacao, descricao e
+          botao direto de conversa. Isso ajuda o vendedor a divulgar com mais
+          praticidade e o comprador a agir sem perder tempo.
+        </p>
+
+        <div class="hero-actions">
+          <a class="button button-primary" href="/imoveis/">
+            Ver imoveis
+          </a>
+          <a
+            class="button button-ghost"
+            href="https://wa.me/5586999254624?text=Ola%2C%20quero%20anunciar%20um%20imovel%20em%20Teresina."
+            target="_blank"
+            rel="noreferrer"
+          >
+            Anunciar agora
+          </a>
+        </div>
+
+        <div class="hero-stats">
+          <div>
+            <strong>{imoveis.length}</strong>
+            <span>anuncios ativos</span>
+          </div>
+          <div>
+            <strong>100%</strong>
+            <span>mobile first</span>
+          </div>
+          <div>
+            <strong>SEO</strong>
+            <span>pronto para Google</span>
+          </div>
+        </div>
+      </div>
+
+      <aside class="hero-panel">
+        <div class="hero-panel-image">
+          <img
+            src="/uploads/imoveis/petronio-portela/1.jpg"
+            alt="Mapa do terreno em destaque na regiao da Petronio Portela"
+            width="768"
+            height="520"
+          />
+        </div>
+        <h2>Divulgacao simples e objetiva</h2>
+        <p>
+          Cada imovel recebe URL propria, SEO dedicado, CTA para WhatsApp e
+          espaco para descricao, endereco de referencia e galeria.
+        </p>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <span class="eyebrow">Destaques</span>
+      <h2 class="section-title">Imoveis e terrenos publicados</h2>
+      <p class="section-copy">
+        Paginas individuais ajudam o Google a entender cada anuncio, enquanto o
+        botao de WhatsApp reduz o atrito para o comprador.
+      </p>
+
+      <div class="property-grid" style="margin-top: 2rem;">
+        {destaques.map((item) => <PropertyCard item={item} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container split-banner">
+      <div>
+        <span class="eyebrow">Para vendedores</span>
+        <h2 class="section-title">Divulgue novos imoveis com rapidez.</h2>
+        <p>
+          O painel administrativo em <code>/admin</code> permite cadastrar
+          fotos, descricao, endereco, telefone, SEO e demais campos essenciais.
+          A proposta e deixar a publicacao pratica e replicavel.
+        </p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="/admin/">
+            Abrir admin
+          </a>
+          <a class="button button-ghost" href="/contato/">
+            Falar com o vendedor
+          </a>
+        </div>
+      </div>
+
+      <img
+        src="/uploads/imoveis/memorare/1.jpg"
+        alt="Mapa com terreno anunciado proximo ao Memorare em Teresina"
+        width="768"
+        height="520"
+      />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <span class="eyebrow">Boas praticas de divulgacao</span>
+      <h2 class="section-title">O que este site faz para vender melhor</h2>
+      <div class="grid-3">
+        <article class="card">
+          <h3>SEO local estruturado</h3>
+          <p>
+            Paginas por anuncio, sitemap, metadados completos, schema markup e
+            texto local para fortalecer buscas como "imoveis em Teresina-PI".
+          </p>
+        </article>
+        <article class="card">
+          <h3>Conversao mobile</h3>
+          <p>
+            CTA curto, botao flutuante de WhatsApp e navegacao simples para
+            transformar o interesse em conversa imediatamente.
+          </p>
+        </article>
+        <article class="card">
+          <h3>Conteudo para autoridade</h3>
+          <p>
+            Blog e pagina local ajudam a criar relevancia organica e ampliar a
+            cobertura de termos que compradores e vendedores pesquisam.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <span class="eyebrow">Teresina-PI</span>
+      <h2 class="section-title">
+        Preparado para ranquear por termos locais relevantes.
+      </h2>
+      <div class="grid-2">
+        <article class="detail-card">
+          <h3>Estrutura tecnica</h3>
+          <p>
+            O projeto inclui sitemap automatico, URLs limpas, heading tags
+            coerentes, markup de anuncios imobiliarios e pagina especifica para
+            "imoveis em Teresina-PI".
+          </p>
+        </article>
+        <article class="detail-card">
+          <h3>Arquitetura de conteudo</h3>
+          <p>
+            O site ja nasce com artigos estrategicos, catalogo indexavel e
+            paginas prontas para expandir bairros, tipos de imovel e novas
+            oportunidades.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <span class="eyebrow">Conteudo</span>
+      <h2 class="section-title">Blog com foco em busca organica</h2>
+      <div class="grid-3">
+        {artigos.map((post) => (
+          <article class="content-card">
+            <span class="pill pill-muted">{post.data.category}</span>
+            <h3>
+              <a href={`/blog/${post.data.slug}/`}>{post.data.title}</a>
+            </h3>
+            <p>{post.data.description}</p>
+            <a href={`/blog/${post.data.slug}/`} class="button button-ghost">
+              Ler artigo
+            </a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <span class="eyebrow">FAQ</span>
+      <h2 class="section-title">Perguntas frequentes</h2>
+      <div class="faq-grid">
+        <article class="faq-card">
+          <strong>Como o comprador entra em contato?</strong>
+          <p>
+            Pelo telefone visivel em cada pagina e pelo botao de WhatsApp com
+            mensagem pre-preenchida.
+          </p>
+        </article>
+        <article class="faq-card">
+          <strong>Como novos imoveis sao publicados?</strong>
+          <p>
+            Pelo painel administrativo conectado ao repositório GitHub. A
+            Netlify recompila o site e publica a atualizacao automaticamente.
+          </p>
+        </article>
+        <article class="faq-card">
+          <strong>O site ja esta pronto para indexacao?</strong>
+          <p>
+            Sim. A base tecnica foi estruturada para indexacao, mas posicao no
+            Google depende tambem de autoridade, Search Console e divulgacao
+            recorrente.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

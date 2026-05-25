@@ -1,0 +1,117 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PropertyCard from "../components/PropertyCard.astro";
+
+const imoveis = (await getCollection("imoveis")).slice(0, 2);
+
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: "Imoveis em Teresina-PI",
+    url: "https://imoveisteresina.netlify.app/imoveis-em-teresina-pi/",
+    description:
+      "Pagina local otimizada para buscas por imoveis em Teresina-PI.",
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: "Como encontrar imoveis em Teresina-PI com mais rapidez?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Priorize paginas com URL propria para cada anuncio, informacoes locais claras e contato direto por WhatsApp.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Por que SEO local importa para anuncios imobiliarios?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "SEO local ajuda o site a cobrir termos com intencao geografica, como imoveis em Teresina-PI, aumentando a chance de atrair interessados mais qualificados.",
+        },
+      },
+    ],
+  },
+];
+---
+
+<BaseLayout
+  title="Imoveis em Teresina-PI | SEO local e anuncios"
+  description="Pagina otimizada para buscas por imoveis em Teresina-PI, com anuncios, conteudo local e contato direto pelo WhatsApp."
+  pathname="/imoveis-em-teresina-pi/"
+  image="/uploads/imoveis/memorare/1.jpg"
+  schema={schema}
+>
+  <div class="container breadcrumb">
+    <a href="/">Inicio</a>
+    <span>/</span>
+    <span>Imoveis em Teresina-PI</span>
+  </div>
+
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow">Pagina local estrategica</span>
+      <h1>Imoveis em Teresina-PI</h1>
+      <p>
+        Esta pagina reforca a relevancia local do portal com conteudo direcionado
+        para pesquisas geograficas, URLs limpas e contato rapido com o vendedor.
+      </p>
+    </div>
+  </section>
+
+  <section class="section-sm">
+    <div class="container grid-2">
+      <article class="detail-card prose">
+        <h2>Como o site foi estruturado para o Google</h2>
+        <p>
+          O projeto combina pagina inicial otimizada, catalogo indexavel,
+          paginas individuais por anuncio, dados estruturados e blog com temas
+          locais. Essa base ajuda a atender a intencao de busca de quem procura
+          imoveis em Teresina-PI.
+        </p>
+        <p>
+          Para o vendedor, isso significa uma estrutura pronta para publicar
+          novos anuncios com mais rapidez. Para o comprador, significa acesso a
+          conteudo mais organizado, objetivo e com CTA curto.
+        </p>
+
+        <h2>Boas praticas implementadas</h2>
+        <ul>
+          <li>um anuncio por URL</li>
+          <li>titulos e descricoes com contexto local</li>
+          <li>schema markup para organizacao, artigos e anuncios</li>
+          <li>sitemap automatico e robots preparado</li>
+          <li>experiencia mobile com botao de WhatsApp sempre disponivel</li>
+        </ul>
+      </article>
+
+      <aside class="sidebar-card">
+        <h2>Praticas de divulgacao recomendadas</h2>
+        <ul>
+          <li>publique anuncios com frequencia</li>
+          <li>adicione novas fotos e informacoes completas</li>
+          <li>mantenha telefone e WhatsApp atualizados</li>
+          <li>registre o site no Google Search Console</li>
+          <li>fortaleca a presenca local com Google Business Profile</li>
+        </ul>
+
+        <a class="button button-primary" href="/blog/">
+          Ver conteudos
+        </a>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section-sm">
+    <div class="container">
+      <h2>Anuncios em destaque</h2>
+      <div class="property-grid" style="margin-top: 1.5rem;">
+        {imoveis.map((item) => <PropertyCard item={item} />)}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

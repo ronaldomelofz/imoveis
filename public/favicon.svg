@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Imoveis Teresina">
+  <defs>
+    <linearGradient id="g" x1="0%" x2="100%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#0ea5e9" />
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="18" fill="url(#g)" />
+  <path d="M14 31 32 17l18 14v17a2 2 0 0 1-2 2H16a2 2 0 0 1-2-2Z" fill="#fff" opacity=".95" />
+  <path d="M25 50V35h14v15" fill="#0ea5e9" />
+</svg>

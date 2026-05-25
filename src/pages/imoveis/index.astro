@@ -1,0 +1,126 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PropertyCard from "../../components/PropertyCard.astro";
+
+const imoveis = (await getCollection("imoveis")).sort(
+  (a, b) => b.data.updatedAt.getTime() - a.data.updatedAt.getTime(),
+);
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  name: "Catalogo de imoveis em Teresina-PI",
+  url: "https://imoveisteresina.netlify.app/imoveis/",
+  description:
+    "Catalogo de imoveis e terrenos em Teresina-PI com fotos, descricao, telefone e WhatsApp.",
+};
+---
+
+<BaseLayout
+  title="Imoveis em Teresina-PI | Catalogo de anuncios"
+  description="Veja imoveis e terrenos em Teresina-PI com fotos, descricao, localizacao de referencia e botao para WhatsApp do vendedor."
+  pathname="/imoveis/"
+  image="/uploads/imoveis/petronio-portela/1.jpg"
+  schema={schema}
+>
+  <div class="container breadcrumb">
+    <a href="/">Inicio</a>
+    <span>/</span>
+    <span>Imoveis</span>
+  </div>
+
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow">Catalogo indexavel</span>
+      <h1>Imoveis em Teresina-PI</h1>
+      <p>
+        Explore os anuncios ativos e use os filtros para localizar mais rapido
+        o tipo de oportunidade que faz sentido para voce.
+      </p>
+    </div>
+  </section>
+
+  <section class="section-sm">
+    <div class="container">
+      <div class="filters">
+        <div class="field">
+          <input
+            id="searchInput"
+            type="search"
+            placeholder="Buscar por titulo, bairro ou regiao"
+          />
+        </div>
+        <div class="field">
+          <select id="typeFilter">
+            <option value="">Todos os tipos</option>
+            <option value="Terreno">Terreno</option>
+          </select>
+        </div>
+        <div class="field">
+          <select id="regionFilter">
+            <option value="">Todas as regioes</option>
+            {Array.from(new Set(imoveis.map((item) => item.data.region))).map((region) => (
+              <option value={region}>{region}</option>
+            ))}
+          </select>
+        </div>
+      </div>
+
+      <div class="property-grid" id="propertyGrid">
+        {imoveis.map((item) => (
+          <div
+            class="property-item"
+            data-title={item.data.title.toLowerCase()}
+            data-type={item.data.propertyType}
+            data-region={item.data.region}
+            data-neighborhood={item.data.neighborhood.toLowerCase()}
+          >
+            <PropertyCard item={item} />
+          </div>
+        ))}
+      </div>
+
+      <div class="empty-state" id="emptyState" hidden>
+        Nenhum anuncio encontrado com os filtros informados.
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const searchInput = document.querySelector("#searchInput");
+    const typeFilter = document.querySelector("#typeFilter");
+    const regionFilter = document.querySelector("#regionFilter");
+    const items = Array.from(document.querySelectorAll(".property-item"));
+    const emptyState = document.querySelector("#emptyState");
+
+    const applyFilters = () => {
+      const query = String(searchInput?.value || "").toLowerCase().trim();
+      const type = String(typeFilter?.value || "");
+      const region = String(regionFilter?.value || "");
+
+      let visibleCount = 0;
+
+      items.forEach((item) => {
+        const matchesQuery =
+          !query ||
+          item.dataset.title?.includes(query) ||
+          item.dataset.region?.toLowerCase().includes(query) ||
+          item.dataset.neighborhood?.includes(query);
+        const matchesType = !type || item.dataset.type === type;
+        const matchesRegion = !region || item.dataset.region === region;
+        const show = Boolean(matchesQuery && matchesType && matchesRegion);
+        item.toggleAttribute("hidden", !show);
+        if (show) visibleCount += 1;
+      });
+
+      emptyState?.toggleAttribute("hidden", visibleCount > 0);
+    };
+
+    [searchInput, typeFilter, regionFilter].forEach((element) =>
+      element?.addEventListener("input", applyFilters),
+    );
+    regionFilter?.addEventListener("change", applyFilters);
+    typeFilter?.addEventListener("change", applyFilters);
+  </script>
+</BaseLayout>

@@ -1,0 +1,19 @@
+---
+interface Props {
+  message?: string;
+}
+
+const {
+  message = "Ola, quero atendimento sobre imoveis em Teresina.",
+} = Astro.props;
+---
+
+<a
+  class="floating-whatsapp"
+  href={`https://wa.me/5586999254624?text=${encodeURIComponent(message)}`}
+  target="_blank"
+  rel="noreferrer"
+  aria-label="Falar no WhatsApp"
+>
+  WhatsApp
+</a>

@@ -1,0 +1,51 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const artigos = (await getCollection("blog")).sort(
+  (a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime(),
+);
+---
+
+<BaseLayout
+  title="Blog de imoveis em Teresina-PI"
+  description="Conteudos sobre anuncios, terrenos, SEO local e boas praticas para vender ou encontrar imoveis em Teresina-PI."
+  pathname="/blog/"
+>
+  <div class="container breadcrumb">
+    <a href="/">Inicio</a>
+    <span>/</span>
+    <span>Blog</span>
+  </div>
+
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow">Conteudo estrategico</span>
+      <h1>Blog sobre imoveis em Teresina-PI</h1>
+      <p>
+        Materiais para fortalecer SEO local, orientar compradores e ajudar
+        vendedores a divulgar melhor seus anuncios.
+      </p>
+    </div>
+  </section>
+
+  <section class="section-sm">
+    <div class="container grid-3">
+      {artigos.map((post) => (
+        <article class="content-card">
+          <span class="pill pill-muted">{post.data.category}</span>
+          <h2>
+            <a href={`/blog/${post.data.slug}/`}>{post.data.title}</a>
+          </h2>
+          <p>{post.data.description}</p>
+          <p style="font-size: 0.95rem; color: var(--muted);">
+            {post.data.readingTime}
+          </p>
+          <a class="button button-ghost" href={`/blog/${post.data.slug}/`}>
+            Ler mais
+          </a>
+        </article>
+      ))}
+    </div>
+  </section>
+</BaseLayout>
