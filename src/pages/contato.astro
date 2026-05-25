@@ -29,47 +29,7 @@ const schema = {
   </section>
 
   <section class="section-sm">
-    <div class="container content-grid">
-      <article class="detail-card">
-        <h2>Enviar mensagem</h2>
-        <form
-          class="contact-form"
-          name="contato"
-          method="POST"
-          data-netlify="true"
-          netlify-honeypot="bot-field"
-        >
-          <input type="hidden" name="form-name" value="contato" />
-          <p hidden>
-            <label>
-              Não preencha este campo
-              <input name="bot-field" />
-            </label>
-          </p>
-
-          <div class="field">
-            <input type="text" name="nome" placeholder="Seu nome" required />
-          </div>
-          <div class="field">
-            <input type="tel" name="telefone" placeholder="Seu telefone" required />
-          </div>
-          <div class="field">
-            <input type="text" name="assunto" placeholder="Assunto" required />
-          </div>
-          <div class="field">
-            <textarea
-              name="mensagem"
-              rows="6"
-              placeholder="Descreva o imóvel ou a sua necessidade"
-              required
-            ></textarea>
-          </div>
-          <button class="button button-primary" type="submit">
-            Enviar mensagem
-          </button>
-        </form>
-      </article>
-
+    <div class="container">
       <aside class="sidebar-card">
         <h2>Atalhos de contato</h2>
         <div class="contact-box">
