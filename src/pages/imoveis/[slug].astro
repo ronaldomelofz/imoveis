@@ -211,19 +211,4 @@ const schema = [
     </div>
   </section>
 
-  {item.data.faq.length > 0 && (
-    <section class="section-sm">
-      <div class="container">
-        <h2>Perguntas frequentes</h2>
-        <div class="faq-grid">
-          {item.data.faq.map((entry) => (
-            <article class="faq-card">
-              <strong>{entry.question}</strong>
-              <p>{entry.answer}</p>
-            </article>
-          ))}
-        </div>
-      </div>
-    </section>
-  )}
 </BaseLayout>
