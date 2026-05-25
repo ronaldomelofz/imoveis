@@ -24,7 +24,7 @@ parkingSpots: 0
 featured: true
 highlights:
   - Localizacao com acesso a corredores urbanos
-  - Boa visibilidade para projeto residencial ou comercial
+  - Boa visibilidade para uso residencial ou comercial
   - Anuncio com multiplas imagens e CTA direto para WhatsApp
 gallery:
   - src: /uploads/imoveis/petronio-portela/1.jpg
@@ -39,21 +39,21 @@ publishedAt: 2026-05-25
 updatedAt: 2026-05-25
 faq:
   - question: Posso negociar diretamente pelo WhatsApp?
-    answer: Sim. O anuncio foi estruturado para reduzir atrito e permitir contato direto com o vendedor no WhatsApp.
+    answer: Sim. O contato pode ser feito diretamente com o vendedor pelo WhatsApp.
   - question: Este terreno atende quem procura boa localizacao em Teresina?
-    answer: A pagina foi pensada para destacar a regiao de referencia e facilitar a avaliacao inicial da oportunidade antes do contato.
+    answer: Sim. A localizacao de referencia ajuda a avaliar melhor a oportunidade antes do contato.
   - question: E possivel adicionar mais fotos depois?
-    answer: Sim. O painel administrativo permite cadastrar novas imagens, descricao, endereco, telefone e outros dados do imovel.
+    answer: Sim. O anuncio pode receber novas fotos e mais detalhes sempre que necessario.
 ---
-Este anuncio foi estruturado para quem pesquisa **terreno a venda em Teresina-PI** e quer uma experiencia objetiva: visualizar a area, entender a regiao e iniciar o atendimento com um clique.
+Este anuncio e ideal para quem pesquisa **terreno a venda em Teresina-PI** e quer visualizar a area, entender a regiao e iniciar o atendimento com um clique.
 
-A referencia visual mostra um terreno com insercao urbana forte, proximo a eixos conhecidos da cidade. Isso ajuda o comprador a avaliar melhor o potencial do imovel, enquanto o vendedor ganha uma pagina individual pronta para indexacao.
+A referencia visual mostra um terreno com insercao urbana forte, proximo a eixos conhecidos da cidade. Isso ajuda o comprador a avaliar melhor o potencial do imovel antes de seguir com a negociacao.
 
 ### Por que este anuncio converte melhor
 
 - o WhatsApp fica sempre visivel
-- a pagina tem foco em SEO local
-- ha uma URL exclusiva para o imovel
+- a localizacao de referencia facilita a avaliacao inicial
+- ha fotos para visualizar melhor a area
 - o layout e responsivo e pensado para mobile
 
 Para receber mais detalhes, disponibilidade atualizada e condicoes de negociacao, basta acionar o vendedor pelo telefone ou WhatsApp.
