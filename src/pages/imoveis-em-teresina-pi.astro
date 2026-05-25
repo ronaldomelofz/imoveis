@@ -5,43 +5,19 @@ import PropertyCard from "../components/PropertyCard.astro";
 
 const imoveis = (await getCollection("imoveis")).slice(0, 2);
 
-const schema = [
-  {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    name: "Imóveis em Teresina-PI",
-    url: "https://imoveisteresina.netlify.app/imoveis-em-teresina-pi/",
-    description:
-      "Anúncios de imóveis em Teresina-PI com contato rápido e informações objetivas.",
-  },
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: [
-      {
-        "@type": "Question",
-        name: "Como encontrar imóveis em Teresina-PI com mais rapidez?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Priorize páginas com URL própria para cada anúncio, informações locais claras e contato direto por WhatsApp.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Como falar comigo sobre um anúncio?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Cada anúncio traz meu telefone e botão de WhatsApp para agilizar o atendimento.",
-        },
-      },
-    ],
-  },
-];
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  name: "Imóveis em Teresina-PI",
+  url: "https://imoveisteresina.netlify.app/imoveis-em-teresina-pi/",
+  description:
+    "Veja imóveis em Teresina-PI com fotos, localização de referência e contato direto pelo WhatsApp.",
+};
 ---
 
 <BaseLayout
-  title="Imóveis em Teresina-PI | Anúncios e oportunidades"
-  description="Veja anúncios de imóveis em Teresina-PI com fotos, localização de referência e contato direto pelo WhatsApp."
+  title="Imóveis em Teresina-PI | Casas, terrenos e oportunidades"
+  description="Veja imóveis em Teresina-PI com fotos, localização de referência, terrenos anunciados e contato direto pelo WhatsApp."
   pathname="/imoveis-em-teresina-pi/"
   image="/uploads/imoveis/memorare/1.jpg"
   schema={schema}
@@ -57,8 +33,8 @@ const schema = [
       <span class="eyebrow">Teresina-PI</span>
       <h1>Imóveis em Teresina-PI</h1>
       <p>
-        Encontre anúncios com fotos, referências de localização e contato direto
-        comigo para saber mais sobre cada imóvel.
+        Encontre imóveis em Teresina-PI com fotos, referências de localização e
+        contato direto comigo para saber mais sobre cada anúncio.
       </p>
     </div>
   </section>
@@ -66,35 +42,33 @@ const schema = [
   <section class="section-sm">
     <div class="container grid-2">
       <article class="detail-card prose">
-        <h2>Oportunidades para quem busca imóvel em Teresina</h2>
+        <h2>Oportunidades para quem busca imóveis em Teresina</h2>
         <p>
-          Nesta página você encontra anúncios reunidos por cidade, com acesso
-          rápido ao catálogo completo, telefones visíveis e botão de WhatsApp
-          para falar direto comigo.
+          Nesta página você encontra imóveis em Teresina-PI com acesso rápido ao
+          catálogo completo, telefones visíveis e botão de WhatsApp para falar
+          direto comigo.
         </p>
         <p>
-          O objetivo é facilitar a negociação: o comprador analisa os dados
-          principais do anúncio e entra em contato comigo com mais rapidez.
+          Os anúncios reúnem terrenos e outras oportunidades em diferentes
+          regiões da cidade, facilitando a busca por localização e contato.
         </p>
 
         <h2>O que você encontra aqui</h2>
         <ul>
-          <li>anúncios com descrição objetiva</li>
-          <li>fotos e referências de localização</li>
-          <li>telefone e WhatsApp em destaque</li>
-          <li>oportunidades em diferentes regiões de Teresina</li>
+          <li>imóveis em Teresina-PI organizados em páginas próprias</li>
+          <li>fotos e referências de localização para avaliar cada oportunidade</li>
+          <li>telefone e WhatsApp em destaque para atendimento rápido</li>
+          <li>terrenos e anúncios em diferentes regiões de Teresina</li>
           <li>navegação simples no celular e no computador</li>
         </ul>
       </article>
 
       <aside class="sidebar-card">
-        <h2>Dicas para avaliar um anúncio</h2>
+        <h2>Buscas relacionadas</h2>
         <ul>
-          <li>confira a região e os acessos</li>
-          <li>observe a vocação residencial ou comercial</li>
-          <li>solicite mais detalhes pelo WhatsApp</li>
-          <li>confirme disponibilidade antes da visita</li>
-          <li>compare anúncios por localização e potencial</li>
+          <li><a href="/imoveis/">Catálogo completo de imóveis</a></li>
+          <li><a href="/terrenos-em-teresina-pi/">Terrenos em Teresina-PI</a></li>
+          <li><a href="/contato/">Contato direto por WhatsApp</a></li>
         </ul>
 
         <a class="button button-primary" href="/imoveis/">

@@ -1,0 +1,91 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PropertyCard from "../components/PropertyCard.astro";
+
+const imoveis = (await getCollection("imoveis")).filter(
+  (item) => item.data.propertyType === "Terreno",
+);
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  name: "Terrenos em Teresina-PI",
+  url: "https://imoveisteresina.netlify.app/terrenos-em-teresina-pi/",
+  description:
+    "Veja terrenos em Teresina-PI com fotos, localização de referência e contato direto pelo WhatsApp.",
+};
+---
+
+<BaseLayout
+  title="Terrenos em Teresina-PI | Anúncios com contato direto"
+  description="Veja terrenos em Teresina-PI com fotos, localização de referência e contato direto pelo WhatsApp."
+  pathname="/terrenos-em-teresina-pi/"
+  image="/uploads/imoveis/petronio-portela/1.jpg"
+  schema={schema}
+>
+  <div class="container breadcrumb">
+    <a href="/">Início</a>
+    <span>/</span>
+    <span>Terrenos em Teresina-PI</span>
+  </div>
+
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow">Teresina-PI</span>
+      <h1>Terrenos em Teresina-PI</h1>
+      <p>
+        Veja terrenos em Teresina com fotos, regiões de referência e contato
+        direto comigo pelo WhatsApp.
+      </p>
+    </div>
+  </section>
+
+  <section class="section-sm">
+    <div class="container grid-2">
+      <article class="detail-card prose">
+        <h2>Terrenos anunciados em Teresina</h2>
+        <p>
+          Esta página reúne terrenos em Teresina-PI com navegação simples,
+          páginas próprias para cada anúncio e atendimento direto comigo.
+        </p>
+        <p>
+          Se você procura terreno em Teresina para morar, investir ou avaliar
+          localização, aqui encontra anúncios com acesso rápido ao telefone e ao
+          WhatsApp.
+        </p>
+
+        <h2>O que você encontra nesta busca</h2>
+        <ul>
+          <li>terrenos em Teresina-PI com páginas próprias</li>
+          <li>fotos para visualizar melhor cada oportunidade</li>
+          <li>regiões de referência para facilitar a avaliação</li>
+          <li>contato direto comigo para disponibilidade e negociação</li>
+          <li>acesso rápido ao catálogo completo de imóveis</li>
+        </ul>
+      </article>
+
+      <aside class="sidebar-card">
+        <h2>Links úteis</h2>
+        <ul>
+          <li><a href="/imoveis/">Ver catálogo completo</a></li>
+          <li><a href="/imoveis-em-teresina-pi/">Imóveis em Teresina-PI</a></li>
+          <li><a href="/contato/">Falar comigo</a></li>
+        </ul>
+
+        <a class="button button-primary" href="/imoveis/">
+          Ver anúncios
+        </a>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section-sm">
+    <div class="container">
+      <h2>Terrenos em destaque</h2>
+      <div class="property-grid" style="margin-top: 1.5rem;">
+        {imoveis.map((item) => <PropertyCard item={item} />)}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
