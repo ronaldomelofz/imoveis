@@ -1,5 +1,5 @@
 ---
-import { getCollection, render } from "astro:content";
+import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 
 export async function getStaticPaths() {
@@ -11,7 +11,6 @@ export async function getStaticPaths() {
 }
 
 const { item } = Astro.props;
-const { Content } = await render(item);
 const firstImage = item.data.gallery[0];
 
 const schema = [
@@ -28,13 +27,13 @@ const schema = [
         {
           "@type": "ListItem",
           position: 1,
-          name: "Inicio",
+          name: "Início",
           item: "https://imoveisteresina.netlify.app/",
         },
         {
           "@type": "ListItem",
           position: 2,
-          name: "Imoveis",
+          name: "Imóveis",
           item: "https://imoveisteresina.netlify.app/imoveis/",
         },
         {
@@ -93,9 +92,9 @@ const schema = [
   schema={schema}
 >
   <div class="container breadcrumb">
-    <a href="/">Inicio</a>
+    <a href="/">Início</a>
     <span>/</span>
-    <a href="/imoveis/">Imoveis</a>
+    <a href="/imoveis/">Imóveis</a>
     <span>/</span>
     <span>{item.data.title}</span>
   </div>
@@ -134,7 +133,7 @@ const schema = [
             {item.data.transactionType === "venda" ? "Venda" : "Aluguel"}
           </span>
           <span class="pill pill-highlight">
-            {item.data.status === "disponivel" ? "Disponivel" : item.data.status}
+            {item.data.status === "disponivel" ? "Disponível" : item.data.status}
           </span>
         </div>
 
@@ -148,15 +147,15 @@ const schema = [
             <dd>{item.data.city} - PI</dd>
           </div>
           <div>
-            <dt>Regiao</dt>
+            <dt>Região</dt>
             <dd>{item.data.region}</dd>
           </div>
           <div>
-            <dt>Bairro ou referencia</dt>
+            <dt>Bairro ou referência</dt>
             <dd>{item.data.neighborhood}</dd>
           </div>
           <div>
-            <dt>Endereco</dt>
+            <dt>Endereço</dt>
             <dd>{item.data.address}</dd>
           </div>
           <div>
@@ -168,7 +167,7 @@ const schema = [
         <div class="property-actions" style="margin-top: 1.25rem;">
           <a
             class="button button-primary"
-            href={`https://wa.me/${item.data.whatsappNumber}?text=${encodeURIComponent(`Ola, quero mais informacoes sobre ${item.data.title}.`)}`}
+            href={`https://wa.me/${item.data.whatsappNumber}?text=${encodeURIComponent(`Olá, quero mais informações sobre ${item.data.title}.`)}`}
             target="_blank"
             rel="noreferrer"
           >
@@ -188,44 +187,17 @@ const schema = [
   </section>
 
   <section class="section-sm">
-    <div class="container content-grid">
-      <article class="detail-card prose">
-        <h2>Descricao do imovel</h2>
-        <Content />
-      </article>
-
-      <aside class="sidebar-card">
-        <h2>Destaques</h2>
-        <ul>
-          {item.data.highlights.map((highlight) => <li>{highlight}</li>)}
-        </ul>
-
-        <h3>Localizacao de referencia</h3>
-        <p>{item.data.address}</p>
-        <a
-          class="button button-ghost"
-          href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(item.data.mapQuery)}`}
-          target="_blank"
-          rel="noreferrer"
-        >
-          Abrir no Google Maps
-        </a>
-      </aside>
-    </div>
-  </section>
-
-  <section class="section-sm">
     <div class="container">
       <div class="cta-band">
-        <h2>Quer negociar este imovel?</h2>
+        <h2>Quer negociar este imóvel?</h2>
         <p>
-          Fale direto comigo para confirmar disponibilidade, preco,
-          documentacao e agendar visita.
+          Fale direto comigo para confirmar disponibilidade, preço,
+          documentação e agendar visita.
         </p>
         <div class="hero-actions">
           <a
             class="button button-primary"
-            href={`https://wa.me/${item.data.whatsappNumber}?text=${encodeURIComponent(`Ola, tenho interesse no anuncio ${item.data.title}.`)}`}
+            href={`https://wa.me/${item.data.whatsappNumber}?text=${encodeURIComponent(`Olá, tenho interesse no anúncio ${item.data.title}.`)}`}
             target="_blank"
             rel="noreferrer"
           >

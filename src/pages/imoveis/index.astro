@@ -10,30 +10,30 @@ const imoveis = (await getCollection("imoveis")).sort(
 const schema = {
   "@context": "https://schema.org",
   "@type": "CollectionPage",
-  name: "Catalogo de imoveis em Teresina-PI",
+  name: "Catálogo de imóveis em Teresina-PI",
   url: "https://imoveisteresina.netlify.app/imoveis/",
   description:
-    "Catalogo de imoveis e terrenos em Teresina-PI com fotos, descricao, telefone e WhatsApp.",
+    "Catálogo de imóveis e terrenos em Teresina-PI com fotos, descrição, telefone e WhatsApp.",
 };
 ---
 
 <BaseLayout
-  title="Imoveis em Teresina-PI | Catalogo de anuncios"
-  description="Veja imoveis e terrenos em Teresina-PI com fotos, descricao, localizacao de referencia e contato direto pelo WhatsApp."
+  title="Imóveis em Teresina-PI | Catálogo de anúncios"
+  description="Veja imóveis e terrenos em Teresina-PI com fotos, descrição, localização de referência e contato direto pelo WhatsApp."
   pathname="/imoveis/"
   image="/uploads/imoveis/petronio-portela/1.jpg"
   schema={schema}
 >
   <div class="container breadcrumb">
-    <a href="/">Inicio</a>
+    <a href="/">Início</a>
     <span>/</span>
-    <span>Imoveis</span>
+    <span>Imóveis</span>
   </div>
 
   <section class="page-hero">
     <div class="container">
-      <span class="eyebrow">Catalogo</span>
-      <h1>Imoveis em Teresina-PI</h1>
+      <span class="eyebrow">Catálogo</span>
+      <h1>Imóveis em Teresina-PI</h1>
     </div>
   </section>
 
@@ -44,7 +44,7 @@ const schema = {
           <input
             id="searchInput"
             type="search"
-            placeholder="Buscar por titulo, bairro ou regiao"
+            placeholder="Buscar por título, bairro ou região"
           />
         </div>
         <div class="field">
@@ -55,7 +55,7 @@ const schema = {
         </div>
         <div class="field">
           <select id="regionFilter">
-            <option value="">Todas as regioes</option>
+            <option value="">Todas as regiões</option>
             {Array.from(new Set(imoveis.map((item) => item.data.region))).map((region) => (
               <option value={region}>{region}</option>
             ))}
@@ -78,7 +78,7 @@ const schema = {
       </div>
 
       <div class="empty-state" id="emptyState" hidden>
-        Nenhum anuncio encontrado com os filtros informados.
+        Nenhum anúncio encontrado com os filtros informados.
       </div>
     </div>
   </section>

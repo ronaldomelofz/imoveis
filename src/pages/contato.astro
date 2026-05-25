@@ -4,27 +4,27 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 const schema = {
   "@context": "https://schema.org",
   "@type": "ContactPage",
-  name: "Contato | Imoveis Teresina",
+  name: "Contato | Imóveis Teresina",
   url: "https://imoveisteresina.netlify.app/contato/",
 };
 ---
 
 <BaseLayout
-  title="Contato | Imoveis Teresina"
-  description="Entre em contato comigo para pedir mais informacoes sobre os imoveis anunciados em Teresina-PI."
+  title="Contato | Imóveis Teresina"
+  description="Entre em contato comigo para pedir mais informações sobre os imóveis anunciados em Teresina-PI."
   pathname="/contato/"
   schema={schema}
 >
   <div class="container breadcrumb">
-    <a href="/">Inicio</a>
+    <a href="/">Início</a>
     <span>/</span>
     <span>Contato</span>
   </div>
 
   <section class="page-hero">
     <div class="container">
-      <span class="eyebrow">Atendimento rapido</span>
-      <h1>Fale comigo sobre os imoveis anunciados</h1>
+      <span class="eyebrow">Atendimento rápido</span>
+      <h1>Fale comigo sobre os imóveis anunciados</h1>
     </div>
   </section>
 
@@ -42,7 +42,7 @@ const schema = {
           <input type="hidden" name="form-name" value="contato" />
           <p hidden>
             <label>
-              Nao preencha este campo
+              Não preencha este campo
               <input name="bot-field" />
             </label>
           </p>
@@ -60,7 +60,7 @@ const schema = {
             <textarea
               name="mensagem"
               rows="6"
-              placeholder="Descreva o imovel ou a sua necessidade"
+              placeholder="Descreva o imóvel ou a sua necessidade"
               required
             ></textarea>
           </div>
@@ -75,13 +75,13 @@ const schema = {
         <div class="contact-box">
           <p><strong>WhatsApp:</strong> (86) 99925-4624</p>
           <p><strong>Cidade foco:</strong> Teresina - PI</p>
-          <p><strong>Atendimento:</strong> informacoes, negociacao e visitas</p>
+          <p><strong>Atendimento:</strong> informações, negociação e visitas</p>
         </div>
 
         <div class="hero-actions" style="margin-top: 1rem;">
           <a
             class="button button-primary"
-            href="https://wa.me/5586999254624?text=Ola%2C%20quero%20falar%20sobre%20um%20imovel%20em%20Teresina."
+            href="https://wa.me/5586999254624?text=Ol%C3%A1%2C%20quero%20falar%20sobre%20um%20im%C3%B3vel%20em%20Teresina."
             target="_blank"
             rel="noreferrer"
           >

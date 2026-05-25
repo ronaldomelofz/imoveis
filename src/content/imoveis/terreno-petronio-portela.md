@@ -1,59 +1,59 @@
 ---
-title: Terreno a venda proximo a Petronio Portela em Teresina-PI
+title: Terreno à venda próximo a Petrônio Portela em Teresina-PI
 slug: terreno-petronio-portela-teresina
-summary: Terreno com boa exposicao urbana na regiao da Petronio Portela e Av. Universitaria, ideal para quem busca visibilidade, acesso e agilidade no contato.
-seoTitle: Terreno a venda proximo a Petronio Portela em Teresina-PI | Imoveis Teresina
-seoDescription: Confira este terreno a venda na regiao da Petronio Portela em Teresina-PI com fotos, localizacao de referencia, telefone e botao para WhatsApp.
+summary: Terreno com boa exposição urbana na região da Petrônio Portela e Av. Universitária, ideal para quem busca visibilidade, acesso e agilidade no contato.
+seoTitle: Terreno à venda próximo a Petrônio Portela em Teresina-PI | Imóveis Teresina
+seoDescription: Confira este terreno à venda na região da Petrônio Portela em Teresina-PI com fotos, localização de referência, telefone e botão para WhatsApp.
 priceLabel: Valor sob consulta
 transactionType: venda
 propertyType: Terreno
 status: disponivel
 city: Teresina
-neighborhood: Regiao da Petronio Portela
+neighborhood: Região da Petrônio Portela
 region: Zona Leste de Teresina
-address: Regiao da Av. Universitaria com Rua Assuncao, Teresina - PI
-mapQuery: Av. Universitaria, Rua Assuncao, Teresina PI
+address: Região da Av. Universitária com Rua Assunção, Teresina - PI
+mapQuery: Av. Universitária, Rua Assunção, Teresina PI
 contactName: Ronaldo Melo
 contactPhone: (86) 99925-4624
 whatsappNumber: "5586999254624"
 areaLabel: Consulte metragem
-lotAreaLabel: Consulte dimensoes
+lotAreaLabel: Consulte dimensões
 bedrooms: 0
 bathrooms: 0
 parkingSpots: 0
 featured: true
 highlights:
-  - Localizacao com acesso a corredores urbanos
+  - Localização com acesso a corredores urbanos
   - Boa visibilidade para uso residencial ou comercial
-  - Anuncio com multiplas imagens e CTA direto para WhatsApp
+  - Anúncio com múltiplas imagens e CTA direto para WhatsApp
 gallery:
   - src: /uploads/imoveis/petronio-portela/1.jpg
-    alt: Primeira vista de mapa do terreno anunciado na regiao da Petronio Portela em Teresina
+    alt: Primeira vista de mapa do terreno anunciado na região da Petrônio Portela em Teresina
   - src: /uploads/imoveis/petronio-portela/2.jpg
-    alt: Segunda vista de mapa do terreno anunciado na regiao da Petronio Portela em Teresina
+    alt: Segunda vista de mapa do terreno anunciado na região da Petrônio Portela em Teresina
   - src: /uploads/imoveis/petronio-portela/3.jpg
-    alt: Terceira vista de mapa do terreno anunciado na regiao da Petronio Portela em Teresina
+    alt: Terceira vista de mapa do terreno anunciado na região da Petrônio Portela em Teresina
   - src: /uploads/imoveis/petronio-portela/4.jpg
-    alt: Quarta vista de mapa do terreno anunciado na regiao da Petronio Portela em Teresina
+    alt: Quarta vista de mapa do terreno anunciado na região da Petrônio Portela em Teresina
 publishedAt: 2026-05-25
 updatedAt: 2026-05-25
 faq:
   - question: Posso negociar diretamente pelo WhatsApp?
     answer: Sim. O contato pode ser feito diretamente comigo pelo WhatsApp.
-  - question: Este terreno atende quem procura boa localizacao em Teresina?
-    answer: Sim. A localizacao de referencia ajuda a avaliar melhor a oportunidade antes do contato.
-  - question: E possivel adicionar mais fotos depois?
-    answer: Sim. O anuncio pode receber novas fotos e mais detalhes sempre que necessario.
+  - question: Este terreno atende quem procura boa localização em Teresina?
+    answer: Sim. A localização de referência ajuda a avaliar melhor a oportunidade antes do contato.
+  - question: É possível adicionar mais fotos depois?
+    answer: Sim. O anúncio pode receber novas fotos e mais detalhes sempre que necessário.
 ---
-Este anuncio e ideal para quem pesquisa **terreno a venda em Teresina-PI** e quer visualizar a area, entender a regiao e iniciar o atendimento com um clique.
+Este anúncio é ideal para quem pesquisa **terreno à venda em Teresina-PI** e quer visualizar a área, entender a região e iniciar o atendimento com um clique.
 
-A referencia visual mostra um terreno com insercao urbana forte, proximo a eixos conhecidos da cidade. Isso ajuda o comprador a avaliar melhor o potencial do imovel antes de seguir com a negociacao.
+A referência visual mostra um terreno com inserção urbana forte, próximo a eixos conhecidos da cidade. Isso ajuda o comprador a avaliar melhor o potencial do imóvel antes de seguir com a negociação.
 
-### Por que este anuncio converte melhor
+### Por que este anúncio converte melhor
 
-- o WhatsApp fica sempre visivel
-- a localizacao de referencia facilita a avaliacao inicial
-- ha fotos para visualizar melhor a area
-- o layout e responsivo e pensado para mobile
+- o WhatsApp fica sempre visível
+- a localização de referência facilita a avaliação inicial
+- há fotos para visualizar melhor a área
+- o layout é responsivo e pensado para mobile
 
-Para receber mais detalhes, disponibilidade atualizada e condicoes de negociacao, basta falar comigo pelo telefone ou WhatsApp.
+Para receber mais detalhes, disponibilidade atualizada e condições de negociação, basta falar comigo pelo telefone ou WhatsApp.

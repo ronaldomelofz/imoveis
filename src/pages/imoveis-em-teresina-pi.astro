@@ -9,10 +9,10 @@ const schema = [
   {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    name: "Imoveis em Teresina-PI",
+    name: "Imóveis em Teresina-PI",
     url: "https://imoveisteresina.netlify.app/imoveis-em-teresina-pi/",
     description:
-      "Anuncios de imoveis em Teresina-PI com contato rapido e informacoes objetivas.",
+      "Anúncios de imóveis em Teresina-PI com contato rápido e informações objetivas.",
   },
   {
     "@context": "https://schema.org",
@@ -20,18 +20,18 @@ const schema = [
     mainEntity: [
       {
         "@type": "Question",
-        name: "Como encontrar imoveis em Teresina-PI com mais rapidez?",
+        name: "Como encontrar imóveis em Teresina-PI com mais rapidez?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Priorize paginas com URL propria para cada anuncio, informacoes locais claras e contato direto por WhatsApp.",
+          text: "Priorize páginas com URL própria para cada anúncio, informações locais claras e contato direto por WhatsApp.",
         },
       },
       {
         "@type": "Question",
-        name: "Como falar comigo sobre um anuncio?",
+        name: "Como falar comigo sobre um anúncio?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Cada anuncio traz meu telefone e botao de WhatsApp para agilizar o atendimento.",
+          text: "Cada anúncio traz meu telefone e botão de WhatsApp para agilizar o atendimento.",
         },
       },
     ],
@@ -40,25 +40,25 @@ const schema = [
 ---
 
 <BaseLayout
-  title="Imoveis em Teresina-PI | Anuncios e oportunidades"
-  description="Veja anuncios de imoveis em Teresina-PI com fotos, localizacao de referencia e contato direto pelo WhatsApp."
+  title="Imóveis em Teresina-PI | Anúncios e oportunidades"
+  description="Veja anúncios de imóveis em Teresina-PI com fotos, localização de referência e contato direto pelo WhatsApp."
   pathname="/imoveis-em-teresina-pi/"
   image="/uploads/imoveis/memorare/1.jpg"
   schema={schema}
 >
   <div class="container breadcrumb">
-    <a href="/">Inicio</a>
+    <a href="/">Início</a>
     <span>/</span>
-    <span>Imoveis em Teresina-PI</span>
+    <span>Imóveis em Teresina-PI</span>
   </div>
 
   <section class="page-hero">
     <div class="container">
       <span class="eyebrow">Teresina-PI</span>
-      <h1>Imoveis em Teresina-PI</h1>
+      <h1>Imóveis em Teresina-PI</h1>
       <p>
-        Encontre anuncios com fotos, referencias de localizacao e contato direto
-        comigo para saber mais sobre cada imovel.
+        Encontre anúncios com fotos, referências de localização e contato direto
+        comigo para saber mais sobre cada imóvel.
       </p>
     </div>
   </section>
@@ -66,39 +66,39 @@ const schema = [
   <section class="section-sm">
     <div class="container grid-2">
       <article class="detail-card prose">
-        <h2>Oportunidades para quem busca imovel em Teresina</h2>
+        <h2>Oportunidades para quem busca imóvel em Teresina</h2>
         <p>
-          Nesta pagina voce encontra anuncios reunidos por cidade, com acesso
-          rapido ao catalogo completo, telefones visiveis e botao de WhatsApp
+          Nesta página você encontra anúncios reunidos por cidade, com acesso
+          rápido ao catálogo completo, telefones visíveis e botão de WhatsApp
           para falar direto comigo.
         </p>
         <p>
-          O objetivo e facilitar a negociacao: o comprador analisa os dados
-          principais do anuncio e entra em contato comigo com mais rapidez.
+          O objetivo é facilitar a negociação: o comprador analisa os dados
+          principais do anúncio e entra em contato comigo com mais rapidez.
         </p>
 
-        <h2>O que voce encontra aqui</h2>
+        <h2>O que você encontra aqui</h2>
         <ul>
-          <li>anuncios com descricao objetiva</li>
-          <li>fotos e referencias de localizacao</li>
+          <li>anúncios com descrição objetiva</li>
+          <li>fotos e referências de localização</li>
           <li>telefone e WhatsApp em destaque</li>
-          <li>oportunidades em diferentes regioes de Teresina</li>
-          <li>navegacao simples no celular e no computador</li>
+          <li>oportunidades em diferentes regiões de Teresina</li>
+          <li>navegação simples no celular e no computador</li>
         </ul>
       </article>
 
       <aside class="sidebar-card">
-        <h2>Dicas para avaliar um anuncio</h2>
+        <h2>Dicas para avaliar um anúncio</h2>
         <ul>
-          <li>confira a regiao e os acessos</li>
-          <li>observe a vocacao residencial ou comercial</li>
+          <li>confira a região e os acessos</li>
+          <li>observe a vocação residencial ou comercial</li>
           <li>solicite mais detalhes pelo WhatsApp</li>
           <li>confirme disponibilidade antes da visita</li>
-          <li>compare anuncios por localizacao e potencial</li>
+          <li>compare anúncios por localização e potencial</li>
         </ul>
 
         <a class="button button-primary" href="/imoveis/">
-          Ver anuncios
+          Ver anúncios
         </a>
       </aside>
     </div>
@@ -106,7 +106,7 @@ const schema = [
 
   <section class="section-sm">
     <div class="container">
-      <h2>Anuncios em destaque</h2>
+      <h2>Anúncios em destaque</h2>
       <div class="property-grid" style="margin-top: 1.5rem;">
         {imoveis.map((item) => <PropertyCard item={item} />)}
       </div>

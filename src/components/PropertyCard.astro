@@ -36,11 +36,11 @@ const firstImage = item.data.gallery[0];
 
     <dl class="property-details">
       <div>
-        <dt>Regiao</dt>
+        <dt>Região</dt>
         <dd>{item.data.region}</dd>
       </div>
       <div>
-        <dt>Endereco</dt>
+        <dt>Endereço</dt>
         <dd>{item.data.address}</dd>
       </div>
       <div>
@@ -51,11 +51,11 @@ const firstImage = item.data.gallery[0];
 
     <div class="property-actions">
       <a class="button button-primary" href={`/imoveis/${item.data.slug}/`}>
-        Ver anuncio
+        Ver anúncio
       </a>
       <a
         class="button button-ghost"
-        href={`https://wa.me/${item.data.whatsappNumber}?text=${encodeURIComponent(`Ola, quero mais informacoes sobre ${item.data.title}.`)}`}
+        href={`https://wa.me/${item.data.whatsappNumber}?text=${encodeURIComponent(`Olá, quero mais informações sobre ${item.data.title}.`)}`}
         target="_blank"
         rel="noreferrer"
       >
