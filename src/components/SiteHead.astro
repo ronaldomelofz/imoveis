@@ -23,10 +23,13 @@ const imageUrl = new URL(image, Astro.site);
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>{title}</title>
 <meta name="description" content={description} />
+<meta name="application-name" content="Imóveis e Terrenos em Teresina" />
+<meta name="apple-mobile-web-app-title" content="Imóveis e Terrenos em Teresina" />
 <meta name="robots" content="index, follow, max-image-preview:large" />
 <link rel="canonical" href={canonical} />
+<link rel="manifest" href="/site.webmanifest" />
 <meta property="og:type" content="website" />
-<meta property="og:site_name" content="Imóveis Teresina" />
+<meta property="og:site_name" content="Imóveis e Terrenos em Teresina" />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
 <meta property="og:url" content={canonical} />

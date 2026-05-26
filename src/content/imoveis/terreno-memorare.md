@@ -2,7 +2,7 @@
 title: Terreno à venda próximo ao Memorare em Teresina-PI
 slug: terreno-memorare-teresina
 summary: Terreno urbano com localização estratégica na região do Memorare, com acesso rápido a vias importantes e contato direto pelo WhatsApp.
-seoTitle: Terreno à venda próximo ao Memorare em Teresina-PI | Imóveis Teresina
+seoTitle: Terreno à venda próximo ao Memorare em Teresina-PI | Imóveis e Terrenos em Teresina
 seoDescription: Veja detalhes do terreno à venda próximo ao Memorare em Teresina-PI, com mapa da região, telefone e botão direto para WhatsApp.
 priceLabel: Valor sob consulta
 transactionType: venda

@@ -2,7 +2,7 @@
 title: Terreno à venda próximo a Petrônio Portela em Teresina-PI
 slug: terreno-petronio-portela-teresina
 summary: Terreno com boa exposição urbana na região da Petrônio Portela e Av. Universitária, ideal para quem busca visibilidade, acesso e agilidade no contato.
-seoTitle: Terreno à venda próximo a Petrônio Portela em Teresina-PI | Imóveis Teresina
+seoTitle: Terreno à venda próximo a Petrônio Portela em Teresina-PI | Imóveis e Terrenos em Teresina
 seoDescription: Confira este terreno à venda na região da Petrônio Portela em Teresina-PI com fotos, localização de referência, telefone e botão para WhatsApp.
 priceLabel: Valor sob consulta
 transactionType: venda
