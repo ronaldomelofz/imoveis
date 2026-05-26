@@ -18,8 +18,8 @@ const schema = {
 ---
 
 <BaseLayout
-  title="Imóveis em Teresina-PI | Catálogo de anúncios"
-  description="Veja imóveis e terrenos em Teresina-PI com fotos, descrição, localização de referência e contato direto pelo WhatsApp."
+  title="Imóveis e terrenos em Teresina-PI | Catálogo"
+  description="Veja imóveis e terrenos em Teresina-PI com fotos, localização de referência e contato direto pelo WhatsApp."
   pathname="/imoveis/"
   image="/uploads/imoveis/petronio-portela/1.jpg"
   schema={schema}
@@ -45,6 +45,7 @@ const schema = {
             id="searchInput"
             type="search"
             placeholder="Buscar por título, bairro ou região"
+            autocomplete="off"
           />
         </div>
         <div class="field">
@@ -89,6 +90,12 @@ const schema = {
     const regionFilter = document.querySelector("#regionFilter");
     const items = Array.from(document.querySelectorAll(".property-item"));
     const emptyState = document.querySelector("#emptyState");
+    const urlParams = new URLSearchParams(window.location.search);
+    const initialQuery = urlParams.get("busca");
+
+    if (initialQuery && searchInput instanceof HTMLInputElement) {
+      searchInput.value = initialQuery;
+    }
 
     const applyFilters = () => {
       const query = String(searchInput?.value || "").toLowerCase().trim();
@@ -118,5 +125,6 @@ const schema = {
     );
     regionFilter?.addEventListener("change", applyFilters);
     typeFilter?.addEventListener("change", applyFilters);
+    applyFilters();
   </script>
 </BaseLayout>
